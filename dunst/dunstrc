@@ -1,0 +1,28 @@
+[global]
+    font = Monospace 10
+    frame_width = 2
+    frame_color = "#5A189A"
+    separator_color = frame
+    padding = 8
+    horizontal_padding = 8
+    corner_radius = 6
+    transparency = 10
+    markup = full
+    format = "<b>%s</b>\n%b"
+    timeout = 5
+
+[urgency_low]
+    background = "#1e1e1e"
+    foreground = "#bbbbbb"
+    timeout = 3
+
+[urgency_normal]
+    background = "#282828"
+    foreground = "#eeeeee"
+    timeout = 5
+
+[urgency_critical]
+    background = "#1c1c1c"
+    foreground = "#A259FF"
+    frame_color = "#7B2CBF"
+    timeout = 0

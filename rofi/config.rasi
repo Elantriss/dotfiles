@@ -1,0 +1,154 @@
+/*-----Configuration-----*/
+
+configuration {
+	modes: "drun";
+	font: "JetBrainsMono Nerd Font Mono Light";
+	drun-display-format: "{name}";
+}
+
+/*-----Global-----*/
+
+* {
+	color0: #111111ff;
+	color2: #aca9a9ff;
+	color3: #4d4c4cff;
+	color4: #fdfdfdff;
+	color5: #ffffffff;
+	color8: #525255ff;
+	color9: #484849ff;
+
+	fg-highlight: @color4;
+
+	bg-entry: @color9;
+	fg-entry: @color4;
+	fg-placeholder: #ebdbb250;
+
+	bg-listview: @color0;
+	fg-element: @color5;
+
+	bg-element-selected: @color8;
+	fg-element-selected: @color2;
+	border-color-element-selected: @color3;
+
+	bg-inputbar: @color0;
+
+	border-color: @color3;
+
+	// border-radius
+    br: 16px;
+
+	border-size-window: 2px;
+	border-size-element-selected: 2px;
+
+	spacing: 0;
+}
+
+/*-----Main Window-----*/
+
+window {
+	transparency: "real";
+	background-color: transparent;
+
+	padding: 0;
+
+	children: [mainbox];
+
+	border: @border-size-window;
+	border-color: @border-color;
+
+	border-radius: @br;
+
+	width: 20%;
+}
+
+/*-----Main Box-----*/
+
+mainbox {
+    children: [inputbar, listview];
+    orientation: vertical;
+}
+
+/*-----Input Bar-----*/
+
+inputbar {
+	children: [entry];
+
+	background-color: @bg-inputbar;
+}
+
+entry {
+	color: @fg-entry;
+	placeholder-color: @fg-placeholder;
+	background-color: @bg-entry;
+
+	placeholder: " is it me you're looking for?";
+
+	text-transform: bold;
+
+	border-radius: @br;
+
+	padding: 12px;
+	margin: 10px;
+    
+	vertical-align: 0.5;
+
+	border: 0;
+}
+
+/*-----List View-----*/
+
+listview {
+	scrollbar: false;
+
+	// border: 0 0 0 2px;  // Removes the dashed line
+	border: 0;
+	lines: 8;   // 8 elements "per page"
+
+	background-color: @bg-listview;
+
+	padding: 10px;
+}
+
+element {
+	children: [element-icon, element-text];
+	spacing: 10px;
+
+	border-radius: @br;
+}
+
+element-icon {
+	vertical-aling: 0.5;
+
+	margin: 0 0 0 10px;
+}
+
+element-text {
+	vertical-align: 0.5;
+	text-transform: bold;
+
+	border-radius: @br;
+
+	color: @fg-element;
+	highlight: @fg-highlight;
+
+	padding: 5px;
+	margin: 10px 10px 10px 0;
+}
+
+element selected.normal {
+	// background-color: @bg-listview;
+	background-color: @bg-element-selected;
+
+	border: @border-size-element-selected;
+	border-color: @border-color-element-selected;
+}
+
+element-text selected {
+	color: @fg-element-selected;
+	text-transform: bold;
+}
+
+element normal.normal,
+element alternate.normal {
+	background-color: transparent;
+}

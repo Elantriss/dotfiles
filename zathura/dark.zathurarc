@@ -1,0 +1,3 @@
+#!/bin/bash
+cp ~/.config/zathura/dark.zathurarc ~/.config/zathura/zathurarc
+notify-send "Zathura" "Tema escuro ativado"
