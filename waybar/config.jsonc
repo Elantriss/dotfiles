@@ -1,0 +1,174 @@
+// -*- mode: jsonc -*-
+{
+    "layer": "top",
+    "position": "top",
+    "height": 14,
+    "margin-left": 10,
+    "margin-right": 10,
+    "margin-top": 2,
+
+    "modules-left": [ 
+        "hyprland/workspaces",
+        "custom/separator#line",
+        "custom/wallpaper",
+        "custom/separator#line",
+        "custom/spotify",
+        "custom/separator#line",
+        "custom/wireplumber",
+        "custom/separator#line"
+        
+    ],
+    "modules-center": [
+        "clock",
+        "custom/separator#line",
+        "custom/weather"
+        
+    ],
+    "modules-right": [
+        "tray",
+        "custom/separator#line",
+        "custom/wl-gammarelay-temperature",
+        "custom/separator#line",
+        "custom/wl-gammarelay-brightness",
+        "custom/separator#line",
+        "group/mobo_drawer",
+        "custom/separator#line",
+        "custom/power"   
+    ],
+    
+    "hyprland/workspaces":{
+    "active-only": false,
+	"all-outputs": true,
+	"format": "{icon}",
+	"show-special": false,
+	"on-click": "activate",
+	"on-scroll-up": "hyprctl dispatch workspace e+1",
+	"on-scroll-down": "hyprctl dispatch workspace e-1",
+    "persistent-workspaces": {
+      "*": 2
+	},
+	"format-icons": {
+		"1": "I",
+		"2": "II",
+        "3": "III",
+        "4": "IV" }
+
+    },
+
+    //-------CUSTOM MODULES-------//
+
+    "custom/wallpaper":{
+        "format": " ",
+        "on-click": "/home/elantris/.config/hypr/scripts/Wallpapers.sh"
+    },
+
+    "custom/spotify": {
+        "format": "{}",
+        "exec": "/usr/bin/python3 ~/.config/waybar/assets/mediaplayer.py --player spotify",
+        "return-type": "json",
+        "on-click": "playerctl -p spotify play-pause",
+        "on-scroll-up": "playerctl -p spotify next",
+        "on-scroll-down": "playerctl -p spotify previous"
+  },
+
+    "custom/weather": {
+        "format": "{}",
+        "exec": "~/.config/waybar/assets/weather.py",
+        "interval": 1800,
+        "return-type": "json"
+
+
+  },
+
+  "custom/wl-gammarelay-brightness": {
+    "format": "{}",
+    "return-type": "json",
+    "tooltip": true,
+    "exec": "/home/elantris/.config/waybar/assets/brightness_bar.sh",
+    "interval": 2,
+    "on-scroll-up": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateBrightness d +0.05",
+    "on-scroll-down": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateBrightness d -0.05"
+  },
+
+    "custom/wl-gammarelay-temperature": {
+        "format": "{}",
+        "return-type": "json",
+        "tooltip": true,
+            "exec": "/home/elantris/.config/waybar/assets/temperature_bar.sh",
+        "interval": 2,
+        "on-scroll-up": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateTemperature n +500",
+        "on-scroll-down": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateTemperature n -500"
+  },
+
+   "custom/wireplumber": {
+        "format": "{}",
+        "return-type": "json",
+        "exec": "/home/elantris/.config/waybar/assets/volume_bar.sh",
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "on-click-right": "pavucontrol",
+        "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ --limit 1.0",
+        "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-",
+        "tooltip": true
+   },
+
+    "custom/power": {
+        "format" : "⏻ ",
+		"on-click": "nwg-bar"
+    },
+
+    "custom/separator#line": {
+	"format": "|",
+	"interval": "once",
+	"tooltip": false
+    },
+
+
+    //---------------------------------------//
+
+    "group/mobo_drawer": {
+	"orientation": "inherit",
+	"drawer": {
+		"transition-duration": 500,
+		"children-class": "cpu",
+		"transition-left-to-right": true
+        },
+	"modules": [
+		"temperature",		
+		"cpu",
+		"power-profiles-daemon",	
+		"memory",
+		"disk"
+	]
+},
+
+    "tray": {
+        "icon-size": 18,
+        "spacing": 6
+    
+},
+    
+    "clock": {
+       "interval": 60,
+    "format": "{:%B | %a %d, %Y | %I:%M %p}",// AM PM format
+    //"format": "{:%B | %a %d, %Y | %H:%M}",// 24H
+	"format-alt": "{:%a %b %d, %G}",
+	"tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>",
+	},
+        
+    "cpu": {
+        "format": "{usage}% ",
+        "tooltip": false
+    },
+    "memory": {
+        "format": "{}% "
+    }
+    //"temperature": {
+        // "thermal-zone": 2,
+        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+        //"critical-threshold": 80,
+        // "format-critical": "{temperatureC}°C {icon}",
+        //"format": "{temperatureC}°C {icon}",
+        //"format-icons": ["", "", ""]
+    //}
+}
+
