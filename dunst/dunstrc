@@ -1,7 +1,7 @@
 [global]
     font = Monospace 10
     frame_width = 2
-    frame_color = "#5A189A"
+    frame_color = "#2B2B2B"
     separator_color = frame
     padding = 8
     horizontal_padding = 8
@@ -23,6 +23,6 @@
 
 [urgency_critical]
     background = "#1c1c1c"
-    foreground = "#A259FF"
-    frame_color = "#7B2CBF"
+    foreground = "#D3D3D3"
+    frame_color = "#808080"
     timeout = 0

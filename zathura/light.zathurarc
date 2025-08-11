@@ -1,4 +1,0 @@
-#!/bin/bash
-cp ~/.config/zathura/light.zathurarc ~/.config/zathura/zathurarc
-notify-send "Zathura" "Tema claro ativado"
-

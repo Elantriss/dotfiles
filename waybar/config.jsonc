@@ -112,8 +112,8 @@
    },
 
     "custom/power": {
-        "format" : "⏻ ",
-		"on-click": "nwg-bar"
+        "format" : "",
+		"on-click": "wlogout"
     },
 
     "custom/separator#line": {
