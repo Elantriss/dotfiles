@@ -3,10 +3,18 @@ Minimal and clean Arch Linux rice using Hyprland.
 
 # Screenshots
 
-## 1.Desktop
+## Desktop
+![img](./src/2025-08-19-144418_hyprshot.png)
 ![img](./src/2025-08-11-174343_hyprshot.png)
 
-## 2.Dolphin (File Manager)
+## Terminal with Fastfech
+![img](./src/2025-08-19-160256_hyprshot.png)
+![img](./src/2025-08-19-142859_hyprshot.png)
+
+## Ranger
+![img](./src/2025-08-19-142813_hyprshot.png)
+
+## Dolphin (File Manager)
 ![img](./src/2025-08-11-174647_hyprshot.png)
 
 ## Included Configs
@@ -15,6 +23,8 @@ Minimal and clean Arch Linux rice using Hyprland.
 - Rofi
 - Kitty
 - Neovim
+- Fastfech
+- Ranger
 
 ## System Info
 
