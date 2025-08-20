@@ -10,12 +10,11 @@
     "modules-left": [ 
         "hyprland/workspaces",
         "custom/separator#line",
-        "custom/wallpaper",
-        "custom/separator#line",
         "custom/spotify",
         "custom/separator#line",
         "custom/wireplumber",
         "custom/separator#line"
+        //"custom/update"
         
     ],
     "modules-center": [
@@ -45,22 +44,26 @@
 	"on-scroll-up": "hyprctl dispatch workspace e+1",
 	"on-scroll-down": "hyprctl dispatch workspace e-1",
     "persistent-workspaces": {
-      "*": 2
+      "*": 3
 	},
 	"format-icons": {
 		"1": "I",
 		"2": "II",
         "3": "III",
-        "4": "IV" }
+        "4": "IV",
+        "5": "V",
+        "6": "VI"
+    }
 
     },
 
     //-------CUSTOM MODULES-------//
 
-    "custom/wallpaper":{
-        "format": " ",
-        "on-click": "/home/elantris/.config/hypr/scripts/Wallpapers.sh"
-    },
+    //"custom/update":{
+    //    "format": "󰚰 ",
+    //    "interval": 3600,
+    //    "on-click": "~/.config/hypr/scripts/update-all.sh"
+    //},  
 
     "custom/spotify": {
         "format": "{}",
@@ -84,7 +87,7 @@
     "format": "{}",
     "return-type": "json",
     "tooltip": true,
-    "exec": "/home/elantris/.config/waybar/assets/brightness_bar.sh",
+    "exec": "~/.config/waybar/assets/brightness_bar.sh",
     "interval": 2,
     "on-scroll-up": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateBrightness d +0.05",
     "on-scroll-down": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateBrightness d -0.05"
@@ -94,7 +97,7 @@
         "format": "{}",
         "return-type": "json",
         "tooltip": true,
-            "exec": "/home/elantris/.config/waybar/assets/temperature_bar.sh",
+            "exec": "~/.config/waybar/assets/temperature_bar.sh",
         "interval": 2,
         "on-scroll-up": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateTemperature n +500",
         "on-scroll-down": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateTemperature n -500"
@@ -103,7 +106,8 @@
    "custom/wireplumber": {
         "format": "{}",
         "return-type": "json",
-        "exec": "/home/elantris/.config/waybar/assets/volume_bar.sh",
+        "exec": "~/.config/waybar/assets/volume_bar.sh",
+        "interval": 1,
         "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
         "on-click-right": "pavucontrol",
         "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ --limit 1.0",
